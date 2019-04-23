@@ -49,6 +49,11 @@ The **aws-switcher.sh** script takes an **AWS profile name**, and passes it to t
 ### Set-Up
 1. Run the **add-alias.sh** script.<br />`$ ./add-alias.sh`
 2. Answer the prompts to configure an alias that will `source` the **aws-switcher.sh**, instead of run it, to set the environment variables to the current shell.
+3. A new `alias` will be created in the provided bash/shell-of-your-choice profile (default `.bash_profile`) like:<br />
+```shell
+## AWS-SWITCHER
+alias aws-switcher=". /path/to/this/repo/aws-switcher/aws-switcher.sh"
+```
 
 ### Switching Profiles
 Now that you have the _alias_ configured, you can switch profiles by running the following command, in your Terminal window:<br />`$ aws-switcher my-profile`
