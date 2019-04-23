@@ -15,8 +15,9 @@ AWS_PROFILE_FILE="./aws-profiler.sh";
 ##
 function switchProfile() {
 	profile="${1// }";
-	export AWS_ACCESS_KEY_ID="$(getCredential aws_access_key_id $profile)";
-	export AWS_SECRET_ACCESS_KEY="$(getCredential aws_secret_access_key $profile)";
+	export AWS_ACCESS_KEY_ID="$(getProfileProperty aws_access_key_id $profile)";
+	export AWS_SECRET_ACCESS_KEY="$(getProfileProperty aws_secret_access_key $profile)";
+	export AWS_DEFAULT_REGION="$(getProfileProperty region $profile)";
 }
 
 ##
@@ -32,7 +33,7 @@ function setProfileName() {
  # $1 AWS Profile Property Name
  # $2 AWS Profile Name
 ##
-function getCredential() {
+function getProfileProperty() {
 	property="${1// }"
 	profile="${2// }";
 
