@@ -25,7 +25,7 @@ function setNewDotFile() {
 	IFS= read -r -p "Enter the file path for the 'alias' (e.g. $HOME/.bashrc, $HOME/.profile): " newFilePath;
 	newFilePath="${newFilePath// }";
 	if [[ ! -f "$newFilePath" ]]; then
-		echo "'$newFilePath' is not a file.";
+		echo "'$newFilePath' is not a file. (\$HOME and ~ are not expandable.)";
 		setNewDotFile;
 	else
 		PROFILE_DOT_FILE="$newFilePath";
